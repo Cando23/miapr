@@ -17,11 +17,7 @@ const config = {
   type: "scatter",
   data: data,
   options: {
-    maintainAspectRation: false,
     plugins: {
-      legend: {
-        position: "top",
-      },
       title: {
         display: true,
         text: "k-means",

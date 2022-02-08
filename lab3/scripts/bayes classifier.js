@@ -25,10 +25,9 @@ const falseZone =
   y2.slice(0, intersection).reduce(reducer) / y2.reduce(reducer);
 const skipZone = y1.slice(intersection, N).reduce(reducer) / y1.reduce(reducer);
 const classificationMistake = falseZone + skipZone;
-console.log("false Zone", falseZone);
-console.log("skip Zone", skipZone);
-console.log("classification mistake", classificationMistake);
-
+document.querySelector("#falseZone").textContent += falseZone;
+document.querySelector("#skipZone").textContent += skipZone;
+document.querySelector("#classificationMistake").textContent += classificationMistake;
 //ND - Normal Distribution
 function randomND() {
   let u = 0,

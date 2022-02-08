@@ -26,10 +26,10 @@ const data = {
         },
         title: {
           display: true,
-          text: 'Chart.js Line Chart'
+          text: 'bayers'
         }
       }
     },
   };
-  const ctx = document.getElementById("myChart").getContext("2d");
+  const ctx = document.getElementById("chart").getContext("2d");
   const chart = new Chart(ctx, config);

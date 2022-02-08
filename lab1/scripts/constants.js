@@ -1,4 +1,4 @@
-const POINTS_COUNT = 10000;
+const POINTS_COUNT = 5000;
 const CLUSTERS_COUNT = 4;
 const colors = ["yellow", "green", "blue", "red"];
-const ctx = document.getElementById("myChart").getContext("2d");
+const ctx = document.getElementById("chart").getContext("2d");
