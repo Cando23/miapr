@@ -26,7 +26,7 @@ const config = {
     plugins: {
       title: {
         display: true,
-        text: "k-means",
+        text: "maxmin",
       },
     },
   },
