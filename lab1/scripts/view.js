@@ -31,10 +31,10 @@ async function main() {
   let oldCentroids;
   let newCentroids;
   do {
-    oldCentroids = getCentroids(oldCentroids);
+    oldCentroids = [...getCentroids()];
     await assignPoints();
     await resetCentroids();
-    newCentroids = getCentroids(newCentroids);
+    newCentroids = [...getCentroids()];
   } while (JSON.stringify(oldCentroids) != JSON.stringify(newCentroids));
   alert("Clusterized!");
 };

@@ -1,9 +1,12 @@
-function getCentroids(centroids) {
-  centroids = [];
+function* getCentroids() {
   for (let i = 0; i < CLUSTERS_COUNT; i++) {
-    centroids.push(chart.data.datasets[0].data[i]);
+    yield chart.data.datasets[0].data[i];
   }
-  return centroids;
+}
+function* initializeClusters() {
+  for (let i = 0; i < CLUSTERS_COUNT; i++) {
+    yield [];
+  }
 }
 function assignPoints() {
   return new Promise(async (resolve) => {
@@ -42,20 +45,14 @@ function resetCentroids() {
     resolve();
   });
 }
-function createClusters() {
-  let clusters = [];
-  for (let i = 0; i < CLUSTERS_COUNT; i++) {
-    clusters.push([]);
-  }
-  return clusters;
-}
+
 function getEuclidDistance(point, centroid) {
   return Math.sqrt(
     Math.pow(centroid.x - point.x, 2) + Math.pow(centroid.y - point.y, 2)
   );
 }
 function getClusters() {
-  let clusters = createClusters();
+  let clusters = [...initializeClusters()];
   const dataset = chart.data.datasets[0];
   for (let i = CLUSTERS_COUNT; i < dataset.data.length; i++) {
     for (let j = 0; j < colors.length; j++) {
@@ -65,13 +62,6 @@ function getClusters() {
     }
   }
   return clusters;
-}
-function calculateDistances(point, centroids) {
-  let distances = [];
-  for (let j = 0; j < CLUSTERS_COUNT; j++) {
-    distances.push(getEuclidDistance(point, centroids[j]));
-  }
-  return distances;
 }
 const getClusterIndex = (distances) => {
   const min = Math.min.apply(Math, distances);

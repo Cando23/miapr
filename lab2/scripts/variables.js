@@ -13,10 +13,9 @@ function generatePoint() {
     centroid: false,
   };
 }
-function generatePoints(points) {
+function* generatePoints() {
   for (let i = 0; i < POINTS_COUNT; i++) {
-    points[i] = generatePoint();
+    yield generatePoint();
   }
-  return points;
 }
-points = generatePoints(points);
+points = [...generatePoints()];

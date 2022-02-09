@@ -3,8 +3,8 @@ const N = 50,
   pc1 = 0.5,
   pc2 = 0.5;
 let mu = 0.6;//for matching with silver explanation doc
-const x1 = initializeVector(N),
-  x2 = initializeVector(N);
+const x1 = [...initializeVector(N)],
+  x2 = [...initializeVector(N)];
 const mu1 = mean(x1) * mu,
   mu2 = mean(x2) * ++mu;
 const sigma1 = standardDeviation(x1, mu1),
@@ -36,12 +36,10 @@ function randomND() {
   while (v === 0) v = Math.random();
   return Math.abs(Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v));
 }
-function initializeVector(n) {
-  let x = [];
+function *initializeVector(n) {
   for (let i = 0; i < n; i++) {
-    x.push(randomND());
+    yield randomND();
   }
-  return x;
 }
 function mean(x) {
   return x.reduce((a, b) => a + b) / x.length;

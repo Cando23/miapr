@@ -6,17 +6,15 @@ function generateNumber() {
 function generatePoint() {
   return { x: generateNumber(), y: generateNumber() };
 }
-function generatePoints(points) {
+function* generatePoints() {
   for (let i = 0; i < POINTS_COUNT; i++) {
-    points[i] = generatePoint();
+    yield generatePoint();
   }
-  return points;
 }
-function setIntitialCentriods(centroids) {
+function* generateIntitialCentriods() {
   for (let i = 0; i < CLUSTERS_COUNT; i++) {
-    centroids[i] = generatePoint();
+    yield generatePoint();
   }
-  return centroids;
 }
-points = generatePoints(points);
-centroids = setIntitialCentriods(centroids);
+points = [...generatePoints()];
+centroids = [...generateIntitialCentriods()];
