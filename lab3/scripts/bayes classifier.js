@@ -42,7 +42,7 @@ function *initializeVector(n) {
   }
 }
 function mean(x) {
-  return x.reduce((a, b) => a + b) / x.length;
+  return x.reduce(reducer) / x.length;
 }
 
 function standardDeviation(x, u) {
