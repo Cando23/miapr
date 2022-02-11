@@ -60,7 +60,7 @@ class Perceptron {
   }
   *generateRandomVector() {
     for (let j = 0; j < this.attributesCount + 1; j++)
-      yield this.randomIntFromInterval(-10, 10);
+      yield this.randomAttributeFromInterval(-10, 10);
   }
   updateClasses(j) {
     return this.classes.map((classVector, i) => {
@@ -68,7 +68,7 @@ class Perceptron {
       return classVector.sumVectors(this.trainigVectors[j]);
     });
   }
-  randomIntFromInterval(min, max) {
+  randomAttributeFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
   innerProduct(classVector, trainigVector) {
