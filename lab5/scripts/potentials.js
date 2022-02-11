@@ -44,7 +44,6 @@ for (let i = 0; i < 3; i++) {
     x2: trainingVectors[i + 1][1],
   });
   sign = i < 1 ? (coefficient <= 0 ? 1 : 0) : coefficient > 0 ? -1 : 0;
-  console.log(coefficient, sign);
 }
 
 //again silver, waiting for explanation
